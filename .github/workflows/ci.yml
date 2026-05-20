@@ -19,11 +19,30 @@ jobs:
       - name: Installa in Node
         uses: actions/setup-node@v4
         with:
-          node-veresion: 22
+          node-version: 22
 
       - name: Installa le dipendenze
         run: npm install
 
       - name: esegue i tests
         run: npm test
+  build:
+    runs-on: ubuntu-latest
+    needs: test
+    steps:
+      - name: Checkout del codice
+        uses: actions/checkout@v4
+
+      - name: Installa in Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+
+      - name: Installa le dipendenze
+        run: npm install
+
+      - name: Lancia il build
+        run: npm run build
+        
+
         
