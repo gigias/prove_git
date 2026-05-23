@@ -2,12 +2,17 @@ name: CI
 
 on:
   push:
-    branches:
-      - main
-      - develop
   pull_request:
     branches:
       - develop
+    paths:
+      - 'src/**'
+      - 'test/**'
+      - 'package.json'
+      - 'tsconfig.json'
+      - '.github/workflows/**'
+    paths-ignore:
+      - 'README.md'
 
 jobs:
   test:
